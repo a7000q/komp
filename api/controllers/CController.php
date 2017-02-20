@@ -23,6 +23,9 @@ class CController extends ActiveController
         {
             $r['data'] = $result;
             $r["status"] = 200;
+
+            if (count($result) != 1)
+                $result = $r;
         }
         else if (!isset($result->status))
         {
@@ -36,6 +39,7 @@ class CController extends ActiveController
             $r["status"] = 200;
             $result = $r;
         }
+
         return $result;
     }
 }

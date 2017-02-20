@@ -16,7 +16,7 @@ class TrkAddressController extends CController
 
         $address->updateStatus($nozle);
 
-        return $address;
+        return ['status' => 200];
     }
 
     private function findModel($id)
