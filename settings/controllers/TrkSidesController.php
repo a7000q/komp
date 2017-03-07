@@ -104,9 +104,11 @@ class TrkSidesController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $side = $this->findModel($id);
+        $id_trk = $side->id_trk;
+        $side->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index', 'id' => $id_trk]);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "trk_address".
@@ -52,10 +53,15 @@ class TrkAddress extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'id_trk' => 'Id Trk',
-            'address' => 'Address',
-            'id_product' => 'Id Product',
-            'status' => 'Status',
-            'id_trk_side' => 'Id Trk Side',
+            'address' => 'Адрес',
+            'id_product' => 'Продукт',
+            'status' => 'Статус',
+            'id_trk_side' => 'Сторона ТРК',
+            'product.name' => 'Продукт',
+            'product.price' => 'Цена',
+            'statusAddress.name' => 'Статус',
+            'trkSide.name' => 'Сторона',
+            'trk.name' => 'ТРК'
         ];
     }
 
@@ -70,7 +76,7 @@ class TrkAddress extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdTrkSide()
+    public function getTrkSide()
     {
         return $this->hasOne(TrkSides::className(), ['id' => 'id_trk_side']);
     }
@@ -78,7 +84,7 @@ class TrkAddress extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdProduct()
+    public function getProduct()
     {
         return $this->hasOne(Products::className(), ['id' => 'id_product']);
     }
@@ -86,7 +92,7 @@ class TrkAddress extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdTrk()
+    public function getTrk()
     {
         return $this->hasOne(Trks::className(), ['id' => 'id_trk']);
     }
@@ -94,8 +100,14 @@ class TrkAddress extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getStatus0()
+    public function getStatusAddress()
     {
         return $this->hasOne(TrkStatus::className(), ['id' => 'status']);
+    }
+
+    public function getArrayTrkSides()
+    {
+        $sides = TrkSides::find()->where(['id_trk' => $this->id_trk])->all();
+        return ArrayHelper::map($sides, "id", "name");
     }
 }

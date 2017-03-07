@@ -6,8 +6,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\TrkAddress */
 
-$this->title = 'Create Trk Address';
-$this->params['breadcrumbs'][] = ['label' => 'Trk Addresses', 'url' => ['index']];
+$this->title = 'Создание нового рукава';
+$this->params['breadcrumbs'][] = ['label' => 'ТРК', 'url' => ['/trk']];
+$this->params['breadcrumbs'][] = ['label' => 'Рукава ТРК', 'url' => ['index', 'id' => $model->id_trk]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="trk-address-create">

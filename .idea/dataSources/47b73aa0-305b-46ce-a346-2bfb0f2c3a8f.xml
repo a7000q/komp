@@ -18,394 +18,421 @@
     <table id="12" parent="2" name="logs"/>
     <table id="13" parent="2" name="migration"/>
     <table id="14" parent="2" name="products"/>
-    <table id="15" parent="2" name="transaction_status"/>
-    <table id="16" parent="2" name="transaction_type"/>
-    <table id="17" parent="2" name="transactions"/>
-    <table id="18" parent="2" name="trk_address"/>
-    <table id="19" parent="2" name="trk_sides"/>
-    <table id="20" parent="2" name="trk_status"/>
-    <table id="21" parent="2" name="trks"/>
-    <column id="22" parent="9" name="id">
+    <table id="15" parent="2" name="settings"/>
+    <table id="16" parent="2" name="transaction_status"/>
+    <table id="17" parent="2" name="transaction_type"/>
+    <table id="18" parent="2" name="transactions"/>
+    <table id="19" parent="2" name="trk_address"/>
+    <table id="20" parent="2" name="trk_sides"/>
+    <table id="21" parent="2" name="trk_status"/>
+    <table id="22" parent="2" name="trks"/>
+    <column id="23" parent="9" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="23" parent="9" name="name">
+    <column id="24" parent="9" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="24" parent="9" name="com">
+    <column id="25" parent="9" name="com">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="25" parent="9" name="sum">
+    <column id="26" parent="9" name="sum">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="26" parent="9" name="status">
+    <column id="27" parent="9" name="status">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <key id="27" parent="9" name="PRIMARY">
+    <key id="28" parent="9" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <trigger id="28" parent="9" name="update_bill_acceptor">
+    <trigger id="29" parent="9" name="update_bill_acceptor">
       <Turn>before-row</Turn>
       <Events>U</Events>
     </trigger>
-    <column id="29" parent="10" name="id">
+    <column id="30" parent="10" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="30" parent="10" name="date_start">
+    <column id="31" parent="10" name="date_start">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="31" parent="10" name="date_end">
+    <column id="32" parent="10" name="date_end">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="32" parent="10" name="sum">
+    <column id="33" parent="10" name="sum">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="33" parent="10" name="count">
+    <column id="34" parent="10" name="count">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="34" parent="10" name="status">
+    <column id="35" parent="10" name="status">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <key id="35" parent="10" name="PRIMARY">
+    <key id="36" parent="10" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <trigger id="36" parent="10" name="insert_bill_cassets">
+    <trigger id="37" parent="10" name="insert_bill_cassets">
       <Turn>before-row</Turn>
       <Events>I</Events>
     </trigger>
-    <column id="37" parent="11" name="id">
+    <column id="38" parent="11" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="38" parent="11" name="date">
+    <column id="39" parent="11" name="date">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="39" parent="11" name="value">
+    <column id="40" parent="11" name="value">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <key id="40" parent="11" name="PRIMARY">
+    <key id="41" parent="11" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <trigger id="41" parent="11" name="insert_bills">
+    <trigger id="42" parent="11" name="insert_bills">
       <Turn>before-row</Turn>
       <Events>I</Events>
     </trigger>
-    <column id="42" parent="12" name="id">
+    <column id="43" parent="12" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="43" parent="12" name="date">
+    <column id="44" parent="12" name="date">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="44" parent="12" name="msg">
+    <column id="45" parent="12" name="msg">
       <Position>3</Position>
       <DataType>text|0</DataType>
     </column>
-    <key id="45" parent="12" name="PRIMARY">
+    <key id="46" parent="12" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <trigger id="46" parent="12" name="insert_log">
+    <trigger id="47" parent="12" name="insert_log">
       <Turn>before-row</Turn>
       <Events>I</Events>
     </trigger>
-    <column id="47" parent="13" name="version">
+    <column id="48" parent="13" name="version">
       <Position>1</Position>
       <DataType>varchar(180)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="48" parent="13" name="apply_time">
+    <column id="49" parent="13" name="apply_time">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <key id="49" parent="13" name="PRIMARY">
+    <key id="50" parent="13" name="PRIMARY">
       <ColNames>version</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="50" parent="14" name="id">
+    <column id="51" parent="14" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="51" parent="14" name="name">
+    <column id="52" parent="14" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="52" parent="14" name="price">
+    <column id="53" parent="14" name="price">
       <Position>3</Position>
       <DataType>decimal(4,2)|0</DataType>
     </column>
-    <key id="53" parent="14" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="54" parent="15" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="55" parent="15" name="name">
-      <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <key id="56" parent="15" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="57" parent="16" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="58" parent="16" name="name">
-      <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <key id="59" parent="16" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="60" parent="17" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="61" parent="17" name="date">
-      <Position>2</Position>
-      <DataType>int(11)|0</DataType>
-    </column>
-    <column id="62" parent="17" name="id_type">
-      <Position>3</Position>
-      <DataType>int(11)|0</DataType>
-    </column>
-    <column id="63" parent="17" name="id_trk_address">
+    <column id="54" parent="14" name="ids">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="64" parent="17" name="status">
+    <key id="55" parent="14" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="56" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="57" parent="15" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="58" parent="15" name="rus_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="59" parent="15" name="value">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="60" parent="15" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="61" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="62" parent="16" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="63" parent="16" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="64" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="65" parent="17" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="66" parent="17" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="67" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="68" parent="18" name="date">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="69" parent="18" name="id_type">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="70" parent="18" name="id_trk_address">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="71" parent="18" name="status">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="65" parent="17" name="volume">
+    <column id="72" parent="18" name="volume">
       <Position>6</Position>
       <DataType>float|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="66" parent="17" name="volume_start">
+    <column id="73" parent="18" name="volume_start">
       <Position>7</Position>
       <DataType>float|0</DataType>
     </column>
-    <column id="67" parent="17" name="price">
+    <column id="74" parent="18" name="price">
       <Position>8</Position>
       <DataType>float|0</DataType>
     </column>
-    <column id="68" parent="17" name="sum">
+    <column id="75" parent="18" name="sum">
       <Position>9</Position>
       <DataType>float|0</DataType>
     </column>
-    <index id="69" parent="17" name="idx_transactions_id_trk_address">
+    <index id="76" parent="18" name="idx_transactions_id_trk_address">
       <ColNames>id_trk_address</ColNames>
     </index>
-    <index id="70" parent="17" name="idx_transactions_id_type">
+    <index id="77" parent="18" name="idx_transactions_id_type">
       <ColNames>id_type</ColNames>
     </index>
-    <index id="71" parent="17" name="idx_transactions_status">
+    <index id="78" parent="18" name="idx_transactions_status">
       <ColNames>status</ColNames>
     </index>
-    <key id="72" parent="17" name="PRIMARY">
+    <key id="79" parent="18" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="73" parent="17" name="fk_transactions_id_type">
+    <foreign-key id="80" parent="18" name="fk_transactions_id_type">
       <ColNames>id_type</ColNames>
       <RefSchemaName>terminal</RefSchemaName>
       <RefTableName>transaction_type</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="74" parent="17" name="fk_transactions_id_trk_address">
+    <foreign-key id="81" parent="18" name="fk_transactions_id_trk_address">
       <ColNames>id_trk_address</ColNames>
       <RefSchemaName>terminal</RefSchemaName>
       <RefTableName>trk_address</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="75" parent="17" name="fk_transactions_status">
+    <foreign-key id="82" parent="18" name="fk_transactions_status">
       <ColNames>status</ColNames>
       <RefSchemaName>terminal</RefSchemaName>
       <RefTableName>transaction_status</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <trigger id="76" parent="17" name="insert_transaction">
+    <trigger id="83" parent="18" name="insert_transaction">
       <Turn>before-row</Turn>
       <Events>I</Events>
     </trigger>
-    <trigger id="77" parent="17" name="update_transaction">
+    <trigger id="84" parent="18" name="update_transaction">
       <Turn>before-row</Turn>
       <Events>U</Events>
     </trigger>
-    <column id="78" parent="18" name="id">
+    <column id="85" parent="19" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="79" parent="18" name="id_trk">
+    <column id="86" parent="19" name="id_trk">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="80" parent="18" name="address">
+    <column id="87" parent="19" name="address">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="81" parent="18" name="id_product">
+    <column id="88" parent="19" name="id_product">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="82" parent="18" name="status">
+    <column id="89" parent="19" name="status">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="83" parent="18" name="id_trk_side">
+    <column id="90" parent="19" name="id_trk_side">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="84" parent="18" name="idx-trk_address-id_trk_side">
+    <index id="91" parent="19" name="idx-trk_address-id_trk_side">
       <ColNames>id_trk_side</ColNames>
     </index>
-    <index id="85" parent="18" name="idx_trk_address_id_product">
+    <index id="92" parent="19" name="idx_trk_address_id_product">
       <ColNames>id_product</ColNames>
     </index>
-    <index id="86" parent="18" name="idx_trk_address_id_trk">
+    <index id="93" parent="19" name="idx_trk_address_id_trk">
       <ColNames>id_trk</ColNames>
     </index>
-    <index id="87" parent="18" name="idx_trk_address_status">
+    <index id="94" parent="19" name="idx_trk_address_status">
       <ColNames>status</ColNames>
     </index>
-    <key id="88" parent="18" name="PRIMARY">
+    <key id="95" parent="19" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="89" parent="18" name="fk_trk_address_id_trk">
+    <foreign-key id="96" parent="19" name="fk_trk_address_id_trk">
       <ColNames>id_trk</ColNames>
       <RefSchemaName>terminal</RefSchemaName>
       <RefTableName>trks</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="90" parent="18" name="fk_trk_address_id_product">
+    <foreign-key id="97" parent="19" name="fk_trk_address_id_product">
       <ColNames>id_product</ColNames>
       <RefSchemaName>terminal</RefSchemaName>
       <RefTableName>products</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="91" parent="18" name="fk_trk_address_status">
+    <foreign-key id="98" parent="19" name="fk_trk_address_status">
       <ColNames>status</ColNames>
       <RefSchemaName>terminal</RefSchemaName>
       <RefTableName>trk_status</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="92" parent="18" name="fk-trk_address-id_trk_side">
+    <foreign-key id="99" parent="19" name="fk-trk_address-id_trk_side">
       <ColNames>id_trk_side</ColNames>
       <RefSchemaName>terminal</RefSchemaName>
       <RefTableName>trk_sides</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="93" parent="19" name="id">
+    <column id="100" parent="20" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="94" parent="19" name="id_trk">
+    <column id="101" parent="20" name="id_trk">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="95" parent="19" name="name">
+    <column id="102" parent="20" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <index id="96" parent="19" name="idx-trk_sides-id_trk">
+    <index id="103" parent="20" name="idx-trk_sides-id_trk">
       <ColNames>id_trk</ColNames>
     </index>
-    <key id="97" parent="19" name="PRIMARY">
+    <key id="104" parent="20" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="98" parent="19" name="fk-trk_sides_id_trk">
+    <foreign-key id="105" parent="20" name="fk-trk_sides_id_trk">
       <ColNames>id_trk</ColNames>
       <RefSchemaName>terminal</RefSchemaName>
       <RefTableName>trks</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="99" parent="20" name="id">
+    <column id="106" parent="21" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="100" parent="20" name="name">
+    <column id="107" parent="21" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="101" parent="20" name="PRIMARY">
+    <key id="108" parent="21" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="102" parent="21" name="id">
+    <column id="109" parent="22" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="103" parent="21" name="name">
+    <column id="110" parent="22" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="104" parent="21" name="port">
+    <column id="111" parent="22" name="port">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="105" parent="21" name="max_volume">
+    <column id="112" parent="22" name="max_volume">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="106" parent="21" name="type">
+    <column id="113" parent="22" name="type">
       <Position>5</Position>
       <DataType>text|0</DataType>
     </column>
-    <key id="107" parent="21" name="PRIMARY">
+    <key id="114" parent="22" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

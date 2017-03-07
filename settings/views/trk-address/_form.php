@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\Products;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\TrkAddress */
@@ -12,18 +13,14 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_trk')->textInput() ?>
+    <?= $form->field($model, 'id_trk_side')->dropDownList($model->arrayTrkSides) ?>
 
     <?= $form->field($model, 'address')->textInput() ?>
 
-    <?= $form->field($model, 'id_product')->textInput() ?>
-
-    <?= $form->field($model, 'status')->textInput() ?>
-
-    <?= $form->field($model, 'id_trk_side')->textInput() ?>
+    <?= $form->field($model, 'id_product')->dropDownList(Products::getArrayAll()) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

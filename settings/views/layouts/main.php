@@ -36,7 +36,9 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'ТРК', 'url' => ['/']]
+            ['label' => 'ТРК', 'url' => ['/']],
+            ['label' => 'Терминал', 'url' => ['/settings']],
+            ['label' => 'Продукты', 'url' => ['/products']]
         ],
     ]);
     NavBar::end();

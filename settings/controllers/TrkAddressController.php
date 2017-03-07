@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Trks;
 use Yii;
 use app\models\TrkAddress;
 use yii\data\ActiveDataProvider;
@@ -39,8 +40,10 @@ class TrkAddressController extends Controller
             'query' => TrkAddress::find()->where(['id_trk' => $id]),
         ]);
 
+        $trk = Trks::findOne($id);
+
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'dataProvider' => $dataProvider, 'trk' => $trk
         ]);
     }
 
@@ -61,9 +64,9 @@ class TrkAddressController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id)
     {
-        $model = new TrkAddress();
+        $model = new TrkAddress(['id_trk' => $id]);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

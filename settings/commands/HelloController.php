@@ -7,6 +7,7 @@
 
 namespace app\commands;
 
+use app\models\Products;
 use yii\console\Controller;
 
 /**

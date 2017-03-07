@@ -5,10 +5,11 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\TrkAddress */
 
-$this->title = 'Update Trk Address: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Trk Addresses', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Изменение Рукава: ' . $model->address;
+$this->params['breadcrumbs'][] = ['label' => 'ТРК', 'url' => ['/trk']];
+$this->params['breadcrumbs'][] = ['label' => 'Рукава ТРК', 'url' => ['index', 'id' => $model->id_trk]];
+$this->params['breadcrumbs'][] = ['label' => $model->address, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Изменение';
 ?>
 <div class="trk-address-update">
 
