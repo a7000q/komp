@@ -1,0 +1,465 @@
+@charset "UTF-8";
+/* Eric Meyer’s “Reset CSS” 2.0 */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@font-face {
+  font-family: 'Evolventa-Regular';
+  src: url("../fonts/Evolventa-Regular/Evolventa-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Evolventa-Regular/Evolventa-Regular.woff") format("woff"), url("../fonts/Evolventa-Regular/Evolventa-Regular.ttf") format("truetype"), url("../fonts/Evolventa-Regular/Evolventa-Regular.svg#Evolventa-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Evolventa-Bold';
+  src: url("../fonts/Evolventa-Bold/Evolventa-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Evolventa-Bold/Evolventa-Bold.woff") format("woff"), url("../fonts/Evolventa-Bold/Evolventa-Bold.ttf") format("truetype"), url("../fonts/Evolventa-Bold/Evolventa-Bold.svg#Evolventa-Bold") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.icon-col1, #step-select-fuel .down-icon.btn:after {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2021.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2072%2092.2%22%20style%3D%22enable-background%3Anew%200%200%2072%2092.2%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text/css%22%3E%0A%09.st0%7Bfill-rule%3Aevenodd%3Bclip-rule%3Aevenodd%3Bfill%3A%232169C9%3B%7D%0A%3C/style%3E%0A%3Cg%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M56.9%2C3.4h-50v22.4h50V3.4L56.9%2C3.4z%20M50.3%2C19.3H13.4V10h36.9V19.3L50.3%2C19.3z%22/%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M70%2C14.7c0-0.1%2C0-0.2%2C0-0.3l-4-11.5l-2.8%2C1l3.3%2C9.3h-6.4c-0.5%2C0-0.9%2C0.2-1.2%2C0.6c-0.3%2C0.4-0.4%2C0.8-0.3%2C1.3%0A%09%09l3.3%2C13.4c0.2%2C0.7%2C0.8%2C1.1%2C1.4%2C1.1h1.9c0.6%2C0%2C1.1-0.1%2C1.6-0.3v36.4c0%2C1.5-1.2%2C2.7-2.7%2C2.7c-1.5%2C0-2.7-1.2-2.7-2.7V36.8h-4.5v-5.9%0A%09%09h-50v46.1h25v3.2H2v9.2h59.6v-9.2h-4.8V39.4h1.8v26.3c0%2C3%2C2.4%2C5.4%2C5.4%2C5.4c3%2C0%2C5.4-2.4%2C5.4-5.4V27c0.4-0.7%2C0.6-1.4%2C0.6-2.2V14.7%0A%09%09L70%2C14.7z%20M65.2%2C26.6h-0.7l-2.6-10.4H67v8.6C67%2C25.8%2C66.2%2C26.6%2C65.2%2C26.6L65.2%2C26.6z%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A");
+  background-repeat: no-repeat; }
+
+.icon-col2, #step-select-fuel .up-icon.btn:after {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2021.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%20101%2089.5%22%20style%3D%22enable-background%3Anew%200%200%20101%2089.5%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text/css%22%3E%0A%09.st0%7Bfill-rule%3Aevenodd%3Bclip-rule%3Aevenodd%3Bfill%3A%234FD103%3B%7D%0A%09.st1%7Bfill-rule%3Aevenodd%3Bclip-rule%3Aevenodd%3Bfill%3A%234FD103%3Bstroke%3A%23FFFFFF%3Bstroke-width%3A0.5669%3Bstroke-miterlimit%3A22.9256%3B%7D%0A%09.st2%7Bfill-rule%3Aevenodd%3Bclip-rule%3Aevenodd%3Bfill%3A%2366B238%3B%7D%0A%3C/style%3E%0A%3Cg%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M3.2%2C75.5H37v8.7h22.7V66.8c2.7-3.9%2C4.2-8.8%2C4.2-14.2c0-8.6-3.6-16-10.4-19.9C51.5%2C16.9%2C42.8%2C5.4%2C32.1%2C5.4H3.2%0A%09%09v6.8h28.8c6.3%2C0%2C11.9%2C7.6%2C14.1%2C18c-1.3-0.2-2.7-0.4-4.2-0.4H3.2v18.4h26.5c1.3%2C0%2C2.2%2C1%2C2.2%2C2.3c0%2C1.2-1%2C2.2-2.2%2C2.2H3.2v2h26.5%0A%09%09c1.3%2C0%2C2.2%2C1%2C2.2%2C2.3c0%2C1.2-1%2C2.2-2.2%2C2.2H3.2V75.5L3.2%2C75.5z%20M37.2%2C52.6c0-4.1%2C3.3-7.4%2C7.4-7.4c4.1%2C0%2C7.4%2C3.3%2C7.4%2C7.4%0A%09%09c0%2C4.1-3.3%2C7.4-7.4%2C7.4C40.5%2C60.1%2C37.2%2C56.7%2C37.2%2C52.6L37.2%2C52.6z%22/%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M72%2C57.6c0%2C0%2C8.3-2.4%2C10.4%2C6l0.8-0.2c0%2C0-1.2-8.9-9.4-8.6L72%2C57.6L72%2C57.6z%22/%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M70.9%2C53.5l-1.3%2C0.9L70.9%2C53.5L70.9%2C53.5L70.9%2C53.5z%20M92.5%2C62.3c-5%2C2.7-8.9%2C4.6-12.3%2C3.7%0A%09%09c-5.2-1.5-11.2-9.6-11.9-10.5l2.6-1.9c1.6%2C2.3%2C6.6%2C8.3%2C10.1%2C9.3c2.2%2C0.6%2C5.6-1.1%2C9.9-3.4L92.5%2C62.3L92.5%2C62.3z%22/%3E%0A%09%3Cpolygon%20class%3D%22st0%22%20points%3D%2296.3%2C62.4%2090.8%2C66.6%2077.4%2C49.6%2082.8%2C45.3%2096.3%2C62.4%20%09%22/%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M74.2%2C44c-0.3%2C0.9-1.3%2C1.4-2.2%2C1.1l-7.2-2.4c-0.9-0.3-2.4-0.6-3.4-0.6l-13.6-0.3c-1%2C0-1.7-0.8-1.7-1.8l0-1.2%0A%09%09c0-1%2C0.8-1.7%2C1.8-1.7l14%2C0.4c1%2C0%2C1.8%2C0.1%2C2%2C0.1c0.1%2C0%2C1.2%2C0.3%2C2.1%2C0.7l7.5%2C2.5c0.9%2C0.3%2C1.4%2C1.3%2C1.1%2C2.2L74.2%2C44L74.2%2C44z%22/%3E%0A%09%3Cpolygon%20class%3D%22st0%22%20points%3D%2269.3%2C59.1%2084.3%2C47.2%2084.4%2C46.6%2080.8%2C41.9%2070.1%2C38.2%2067.7%2C45%2070.2%2C45.9%2071%2C47.6%2068.4%2C52.4%2067.1%2C55.3%20%0A%09%0969.3%2C59.1%20%09%22/%3E%0A%09%3Cpath%20class%3D%22st1%22%20d%3D%22M97.4%2C61.7c0.7%2C0.8%2C0.5%2C2.1-0.3%2C2.7l-4.4%2C3.4c-0.8%2C0.7-2.1%2C0.5-2.7-0.3l-0.3-0.3c-0.7-0.8-0.5-2.1%2C0.3-2.7%0A%09%09l4.4-3.4c0.8-0.7%2C2.1-0.5%2C2.7%2C0.3L97.4%2C61.7L97.4%2C61.7z%22/%3E%0A%09%3Cpath%20class%3D%22st2%22%20d%3D%22M93.5%2C58.8l-9.2-11.6l0%2C0L93.5%2C58.8L93.5%2C58.8z%20M79.1%2C51.7l-0.3-0.2l0.1-0.1L79.1%2C51.7L79.1%2C51.7z%22/%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M94%2C61.4l-14.9-9.7l-0.2-0.2l5.5-4.3l9.2%2C11.6l1.5%2C1.9c-0.2%2C0.1-0.4%2C0.2-0.6%2C0.3L94%2C61.4L94%2C61.4L94%2C61.4z%22/%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M94%2C61.4l0.4-0.3c0.2-0.2%2C0.4-0.3%2C0.6-0.3l0%2C0L94%2C61.4L94%2C61.4z%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A");
+  background-repeat: no-repeat; }
+
+.icon-rub {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2021.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2010.8%2014.1%22%20style%3D%22enable-background%3Anew%200%200%2010.8%2014.1%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text/css%22%3E%0A%09.st0%7Bfill%3A%232B2929%3B%7D%0A%3C/style%3E%0A%3Cg%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M0.8%2C8.4V6.1h1.1V0.4h3.2c0.9%2C0%2C1.5%2C0%2C2%2C0.1S8%2C0.8%2C8.4%2C1.1c0.5%2C0.3%2C0.9%2C0.8%2C1.2%2C1.4s0.4%2C1.2%2C0.4%2C2%0A%09%09c0%2C0.8-0.2%2C1.5-0.5%2C2.1S8.8%2C7.6%2C8.2%2C7.9C7.9%2C8.1%2C7.5%2C8.2%2C7%2C8.3c-0.5%2C0.1-1.1%2C0.1-2%2C0.1H4.3v0.7h3.5v2.4H4.3v2.2H1.8v-2.2H0.8V9.1%0A%09%09h1.1V8.4H0.8z%20M4.3%2C6.1H5c0.7%2C0%2C1.2-0.1%2C1.5-0.2c0.3-0.1%2C0.6-0.3%2C0.7-0.5s0.3-0.6%2C0.3-0.9c0-0.4-0.1-0.7-0.3-1S6.8%2C3%2C6.5%2C2.9%0A%09%09C6.2%2C2.8%2C5.7%2C2.7%2C5.1%2C2.7H4.3V6.1z%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A");
+  background-repeat: no-repeat; }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  min-width: 720px;
+  min-height: 719px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ebeded+100 */
+  background: white;
+  /* Old browsers */
+  /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, white 0%, #ebeded 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-radial-gradient(center ellipse, white 0%, #ebeded 100%);
+  background: radial-gradient(ellipse at center, white 0%, #ebeded 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ebeded',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */ }
+
+.main-container {
+  padding: 60px 60px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  position: relative; }
+
+button {
+  background: #2069c8;
+  display: block;
+  font-family: "Evolventa-Bold", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  min-height: 56px;
+  min-width: 218px;
+  cursor: pointer; }
+  button span {
+    position: relative; }
+  button.btn {
+    font-size: 36px;
+    height: 78px;
+    width: 343px;
+    max-width: 343px;
+    margin: 15px auto; }
+  button.preg-btn, button.start-btn, button.close-btn {
+    font-size: 30px;
+    display: none; }
+  button.start-btn {
+    padding-right: 20px;
+    position: absolute;
+    top: 0;
+    right: 7%;
+    background-color: #4fd103; }
+    button.start-btn span:after {
+      content: '';
+      position: absolute;
+      top: 7px;
+      right: -37px;
+      background: transparent;
+      border: 14px solid transparent;
+      border-left: 14px solid #fff; }
+  button.preg-btn {
+    position: absolute;
+    top: 0;
+    left: 7%;
+    padding-left: 20px; }
+    button.preg-btn span:before {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: -37px;
+      background: transparent;
+      border: 14px solid transparent;
+      border-right: 14px solid #fff; }
+  button:hover {
+    opacity: .7; }
+
+input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font: 36px/1 "Evolventa-Bold", sans-serif;
+  color: #2b2929;
+  text-align: right; }
+  input:focus, input:active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    outline: none; }
+  input[name="enter-money"] {
+    padding: 0 40px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%; }
+  input[name="quantity_fuel"] {
+    background: #fff;
+    width: 200px;
+    height: 72px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: auto; }
+  input[type="button"] {
+    background-color: #2069c8;
+    color: #fff;
+    text-align: center;
+    font-size: 48px;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    -webkit-transition: all .5s;
+    transition: all .5s; }
+    input[type="button"]:last-child {
+      background-color: #e21e24;
+      width: auto;
+      font-size: 24px;
+      padding: 0 15px; }
+      input[type="button"]:last-child:hover {
+        background-color: #2069c8; }
+    input[type="button"]:hover {
+      background-color: #e21e24;
+      -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      transform: scale(1.2); }
+
+.logo {
+  width: 170px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+  -webkit-transition: all 1s;
+  transition: all 1s; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; }
+  footer .center-align {
+    padding: 25px 7% 6%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+
+.active {
+  display: inline-block !important; }
+
+.active-step {
+  display: block;
+  visibility: visible;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  margin-bottom: 60px;
+}
+
+.masck {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 10; }
+
+section {
+  max-width: 810px;
+  margin: 0 auto;
+  display: none;
+  visibility: hidden; }
+  section .wapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    position: relative; }
+    section .wapper .center-content .title {
+      font: 38px "Evolventa-Bold", sans-serif;
+      letter-spacing: -1px;
+      color: #5b5b5b;
+      text-align: center;
+      text-transform: uppercase;
+      padding-bottom: 35px; }
+    section .wapper .center-content .center-elements {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-flow: column;
+      -ms-flex-flow: column;
+      flex-flow: column; }
+
+#step-select-fuel .btn:after {
+  content: "";
+  width: 68px;
+  position: absolute;
+  height: 60px;
+  right: -60px; }
+
+
+#step-select-money .btn {
+  width: 400px;
+  max-width: 400px; }
+
+#step-balance .money-screen {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid #2069c8;
+  font: 36px/1.66 "Evolventa-Bold", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  overflow: hidden;
+  height: 60px;
+  width: 450px;
+  max-width: 450px;
+  position: static;
+  margin-right: 20px; }
+  #step-balance .money-screen span {
+    background-color: #2069c8;
+    display: block;
+    text-align: center;
+    width: 50%;
+    height: 100%; }
+  #step-balance .money-screen:after {
+    content: "₽";
+    color: #2b2929;
+    position: absolute;
+    top: 87px;
+    right: -8px; }
+
+#step-balance .selected-fuel {
+  text-align: center;
+  margin-top: 16px; }
+  #step-balance .selected-fuel span {
+    display: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #5b5b5b;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    height: 69px;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    font: 32px/2 "Evolventa-Bold", sans-serif; }
+
+#step-scancards .btn {
+  max-width: 150px;
+  height: 20px;
+  background-color: #e21e24;
+  opacity: .5; }
+  #step-scancards .btn span {
+    top: 36px;
+    border: 24px solid transparent;
+    border-top: 25px solid #fff; }
+  #step-scancards .btn:hover {
+    opacity: .5; }
+
+#step-quantity-fuel .center-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap; }
+
+#step-quantity-fuel .left-block {
+  max-width: 460px;
+  width: 460px;
+  margin-right: 40px; }
+  #step-quantity-fuel .left-block div {
+    width: 100%;
+    display: block;
+    color: #b2b2b2;
+    font: 30px/1 "Evolventa-Regular", sans-serif;
+    text-transform: uppercase;
+    background: #ebeded;
+    padding: 2px 0 2px 5px;
+    margin: 5px; }
+
+#step-quantity-fuel .right-block {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  background-color: #5b5b5b;
+  max-width: 204px;
+  max-height: 456px;
+  -webkit-border-radius: 18px;
+  border-radius: 18px;
+  padding: 27px; }
+  #step-quantity-fuel .right-block div.quantity {
+    position: relative; }
+  #step-quantity-fuel .right-block .keyboard {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 25px; }
+    #step-quantity-fuel .right-block .keyboard input:nth-child(10), #step-quantity-fuel .right-block .keyboard input:nth-child(11) {
+      margin-bottom: 0; }
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.show-step-animation, section {
+  -webkit-animation: fadeOut 2s;
+  animation: fadeOut 2s; }
+
+header, footer {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.blue-block
+{
+  border: 2px solid #45688e;
+  display: inline-block;
+  font: 28px/1 "Evolventa-Bold", sans-serif;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin-left: 30px;
+}
+
+.blue-block span
+{
+  display:inline-block;
+  padding: 15px 20px;
+}
+
+.blue-block span.name
+{
+  background: #1e66d1;
+  color: white;
+  border-radius: 6px 0 0 6px;
+}
+
+.success-action
+{
+  font: 26px/1 "Evolventa-Bold", sans-serif;
+  color:#e31e25;
+  width: 100%;
+  text-align:center;
+  margin: 40px 0;
+}

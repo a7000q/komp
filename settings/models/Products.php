@@ -66,6 +66,11 @@ class Products extends \yii\db\ActiveRecord
 
     static public function UploadServer()
     {
+        $activity = Activity::find()->one();
+
+        if ($activity->isActive())
+            return "";
+
         $client = new Client();
         $setting = Settings::findOne(['name' => "token"]);
         $token = $setting->value;

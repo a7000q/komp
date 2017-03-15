@@ -2,57 +2,14 @@
 
 namespace app\controllers;
 
-use Yii;
-use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\Activity;
+use Yii;
+
 
 class SiteController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
-        ];
-    }
-
     /**
      * Displays homepage.
      *
@@ -60,66 +17,86 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $activity = $this->findActivity();
+        $render = "p".$activity->step;
+        //print_r($render);
+
+        return $this->render($render, ['activity' => $activity]);
     }
 
-    /**
-     * Login action.
-     *
-     * @return string
-     */
-    public function actionLogin()
+    private function findActivity()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
+        $model = Activity::find()->orderBy('date DESC')->one();
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+        if (!$model)
+            return Activity::newActivity();
+
+        return $model;
     }
 
-    /**
-     * Logout action.
-     *
-     * @return string
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
 
-        return $this->goHome();
+    //Выбор колонки
+    public function actionSetSide()
+    {
+        $post = Yii::$app->request->post();
+        $id_side = ArrayHelper::getValue($post, "side");
+
+        $activity = $this->findActivity();
+        $activity->id_side = $id_side;
+        $activity->save();
+
+        $activity->nextStep();
+        $this->redirect(['/site/index']);
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return string
-     */
-    public function actionContact()
+    //Выбор топлива
+    public function actionSetAddress()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
+        $post = Yii::$app->request->post();
+        $id_address = ArrayHelper::getValue($post, "address");
 
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
+        $activity = $this->findActivity();
+        $activity->id_address = $id_address;
+        $activity->save();
+
+        $activity->nextStep();
+        $this->redirect(['/site/index']);
     }
 
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
+    public function actionSetPay()
     {
-        return $this->render('about');
+        $post = Yii::$app->request->post();
+        $id_pay = ArrayHelper::getValue($post, "pay");
+
+        $activity = $this->findActivity();
+        $activity->id_pay = $id_pay;
+        $activity->save();
+
+        $activity->nextStep();
+        $this->redirect(['/site/index']);
+    }
+
+    public function actionFooterAction()
+    {
+        $post = Yii::$app->request->post();
+        $activity = $this->findActivity();
+
+        if (isset($post["prev"]))
+            $activity->prevStep();
+
+        if (isset($post["close"]))
+            $activity->reset();
+
+        if (isset($post["start"]))
+            $activity->start();
+
+        $this->redirect(['/site/index']);
+    }
+
+    public function actionGetStatus()
+    {
+        $activity = $this->findActivity();
+
+        return $activity->loadReset();
     }
 }

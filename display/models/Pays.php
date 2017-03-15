@@ -5,21 +5,19 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "transaction_type".
+ * This is the model class for table "pays".
  *
  * @property integer $id
  * @property string $name
- *
- * @property Transactions[] $transactions
  */
-class TransactionType extends \yii\db\ActiveRecord
+class Pays extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'transaction_type';
+        return 'pays';
     }
 
     /**
@@ -41,13 +39,5 @@ class TransactionType extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getTransactions()
-    {
-        return $this->hasMany(Transactions::className(), ['id_type' => 'id']);
     }
 }

@@ -15,7 +15,7 @@ class TransactionController extends CController
         $transaction = Transactions::find()->where([
             'id_trk_address' => $id_trk_address,
             'status' => 1
-        ])->orderBy('date DESC')->one();
+        ])->orderBy('date')->one();
 
         Logs::write("Запрос статуса: transaction/get-status?id_trk_address=".$id_trk_address);
 

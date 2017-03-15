@@ -3,7 +3,6 @@
 namespace app\models;
 
 use Yii;
-use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "transactions".
@@ -16,8 +15,11 @@ use yii\helpers\ArrayHelper;
  * @property double $volume
  * @property double $volume_start
  * @property double $price
+ * @property double $sum
+ * @property integer $id_sale
  *
  * @property TrkAddress $idTrkAddress
+ * @property TransactionType $idType
  * @property TransactionStatus $status0
  */
 class Transactions extends \yii\db\ActiveRecord
@@ -30,11 +32,6 @@ class Transactions extends \yii\db\ActiveRecord
         return 'transactions';
     }
 
-    public function extraFields()
-    {
-        return ['volumeStart'];
-    }
-
     /**
      * @inheritdoc
      */
@@ -42,7 +39,7 @@ class Transactions extends \yii\db\ActiveRecord
     {
         return [
             [['date', 'id_trk_address', 'status', 'id_sale'], 'integer'],
-            [['volume', 'volume_start', 'price'], 'number'],
+            [['volume', 'volume_start', 'price', 'sum'], 'number'],
             [['id_trk_address'], 'exist', 'skipOnError' => true, 'targetClass' => TrkAddress::className(), 'targetAttribute' => ['id_trk_address' => 'id']],
             [['status'], 'exist', 'skipOnError' => true, 'targetClass' => TransactionStatus::className(), 'targetAttribute' => ['status' => 'id']],
         ];
@@ -62,13 +59,15 @@ class Transactions extends \yii\db\ActiveRecord
             'volume' => 'Volume',
             'volume_start' => 'Volume Start',
             'price' => 'Price',
+            'sum' => 'Sum',
+            'id_sale' => 'Id Sale',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTrkAddress()
+    public function getIdTrkAddress()
     {
         return $this->hasOne(TrkAddress::className(), ['id' => 'id_trk_address']);
     }
@@ -79,47 +78,5 @@ class Transactions extends \yii\db\ActiveRecord
     public function getStatus0()
     {
         return $this->hasOne(TransactionStatus::className(), ['id' => 'status']);
-    }
-
-    public function setFuelVolume($volume)
-    {
-        $volume = str_replace(",", ".", $volume);
-        $this->volume = $volume;
-        $this->status = 2;
-
-        $this->save();
-    }
-
-    public function end($volume)
-    {
-        $volume = str_replace(",", ".", $volume);
-        $this->volume = $volume;
-        $this->status = 3;
-
-        $this->save();
-
-        $sale = $this->sale;
-        if ($sale)
-        {
-            $sale->status = 3;
-            $sale->save();
-        }
-
-        Logs::write("Transaction id: ".$this->id." end");
-    }
-
-    public function getVolumeStart()
-    {
-        $max_volume = ArrayHelper::getValue($this, "trkAddress.trk.max_volume", 900);
-
-        if ($this->volume_start > $max_volume)
-            return $max_volume;
-
-        return $this->volume_start;
-    }
-
-    public function getSale()
-    {
-        return $this->hasOne(Sales::className(), ['id' => 'id_sale']);
     }
 }
