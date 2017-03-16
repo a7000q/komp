@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\httpclient\Client;
 
 /**
  * This is the model class for table "sales".
@@ -65,5 +66,49 @@ class Sales extends \yii\db\ActiveRecord
             'status' => 'Status',
             'upload' => 'Upload',
         ];
+    }
+
+    static public function uploadSales()
+    {
+        $sales = Sales::find()->where(['<>', 'status', 1])->andWhere(['upload' => 1])->all();
+
+        foreach ($sales as $sale)
+        {
+            $sale->uploadServer();
+        }
+    }
+
+    public function uploadServer()
+    {
+        $client = new Client();
+        $token = Settings::getToken();
+        $id_product = $this->product->ids;
+
+        $response = $client->get('http://api.tagera.ru/sale/add-cash',[
+            'token' => $token,
+            'date' => $this->date,
+            'id_product' => $id_product,
+            'volume' => $this->volume,
+            'price' => $this->price,
+            'bill_sum' => $this->sum
+        ])->send();
+
+        print_r($response);
+
+        if ($response->isOk && $response->data["status"] == 200)
+        {
+            $data = $response->data["data"];
+
+            if (isset($data["id"]))
+            {
+                $this->upload = 2;
+                $this->save();
+            }
+        }
+    }
+
+    public function getProduct()
+    {
+        return $this->hasOne(Products::className(),['id' => 'id_product']);
     }
 }
