@@ -468,3 +468,8 @@ header, footer {
 {
   background: grey !important;
 }
+
+html
+{
+  cursor:none;
+}
