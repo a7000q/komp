@@ -50,6 +50,11 @@ class Activity extends \yii\db\ActiveRecord
         ];
     }
 
+    static public function getActivity()
+    {
+        return Activity::find()->one();
+    }
+
     public function getTStep()
     {
         return $this->hasOne(ActivitySteps::className(), ['id' => 'step']);
@@ -152,6 +157,12 @@ class Activity extends \yii\db\ActiveRecord
             case 3:
                 $this->nextStep3();
                 break;
+            case 5:
+                $this->nextStep5();
+                break;
+            case 9:
+                $this->nextStep9();
+                break;
         }
 
         $this->date = time();
@@ -170,6 +181,18 @@ class Activity extends \yii\db\ActiveRecord
             $this->nextStep();
         }
 
+        $this->save();
+    }
+
+    public function nextStep5()
+    {
+        $this->step = 9;
+        $this->save();
+    }
+
+    public function nextStep9()
+    {
+        $this->step = 6;
         $this->save();
     }
 
@@ -199,6 +222,7 @@ class Activity extends \yii\db\ActiveRecord
                 break;
             case 2:
                 $this->step = 5;
+                $this->enabledCardReader();
                 break;
         }
 
@@ -209,6 +233,12 @@ class Activity extends \yii\db\ActiveRecord
     {
         $acceptor = BillAcceptor::getAcceptor();
         $acceptor->enabled();
+    }
+
+    private function enabledCardReader()
+    {
+        $reader = CardReader::getReader();
+        $reader->enabled();
     }
 
     public function getAddress()
@@ -258,7 +288,7 @@ class Activity extends \yii\db\ActiveRecord
 
     public function isVisiblePrevBtn()
     {
-        if ($this->step == 1)
+        if ($this->step == 1 || $this->step == 10 || $this->step == 11)
             return false;
 
         if ($this->step == 2 && count($this->sides) < 2)
@@ -275,7 +305,8 @@ class Activity extends \yii\db\ActiveRecord
 
     public function isVisibleCloseBtn()
     {
-        if ($this->step == 4 || $this->step == 7)
+        if ($this->step == 4 || $this->step == 7 || $this->step == 5 || $this->step == 6
+            || $this->step == 10 || $this->step == 11)
             return true;
 
         return false;
@@ -290,7 +321,8 @@ class Activity extends \yii\db\ActiveRecord
     {
         $result = false;
 
-        if ($this->step == 2 || $this->step == 3 || $this->step == 7)
+        if ($this->step == 2 || $this->step == 3 || $this->step == 7 ||
+            $this->step == 5 || $this->step == 10 || $this->step == 11)
         {
             $dt = time() - $this->date;
 
@@ -325,6 +357,11 @@ class Activity extends \yii\db\ActiveRecord
         if (parent::beforeDelete()) {
             $acceptor = BillAcceptor::getAcceptor();
             $acceptor->disabled();
+
+            $reader = CardReader::getReader();
+            $reader->disabled();
+
+            ServerMsg::deleteAll();
             return true;
         } else {
             return false;
@@ -362,20 +399,37 @@ class Activity extends \yii\db\ActiveRecord
             $sale->save();
     }
 
-    public function start()
+    private function startFuelCard($volume)
+    {
+        $sale = $this->getNewSale();
+        $sale->price = $this->card["price"];
+        $sale->sum = $sale->price * $volume;
+        $sale->volume = $volume;
+        $sale->id_card = $this->card["id"];
+
+        $sale->status = 1;
+
+        if ($sale->validate())
+            $sale->save();
+    }
+
+    public function start($volume = 0)
     {
         $this->date = time();
         $this->step = 7;
         $this->save();
 
-        $acceptor = BillAcceptor::getAcceptor();
-        $acceptor->disabled();
-
         switch ($this->id_pay)
         {
             case 1:
                 $this->startFuelCash();
+                $acceptor = BillAcceptor::getAcceptor();
+                $acceptor->disabled();
                 break;
+            case 2:
+                $this->startFuelCard($volume);
+                $reader = CardReader::getReader();
+                $reader->disabled();
         }
     }
 
@@ -396,5 +450,35 @@ class Activity extends \yii\db\ActiveRecord
     public function getSide()
     {
         return $this->hasOne(TrkSides::className(), ['id' => 'id_side']);
+    }
+
+    public function setErrorNotCard()
+    {
+        $this->step = 10;
+        $this->date = time();
+        $this->save();
+    }
+
+    public function setErrorConnect()
+    {
+        $this->step = 11;
+        $this->date = time();
+        $this->save();
+    }
+
+    public function getCard()
+    {
+        return ServerMsg::getCard();
+    }
+
+    public function getMaxVolume()
+    {
+        $volume = $this->card["maxVolume"];
+        $trk_max_volume = ArrayHelper::getValue($this, "address.trk.max_volume");
+
+        if ($trk_max_volume < $volume)
+            $volume = $trk_max_volume;
+
+        return $volume;
     }
 }

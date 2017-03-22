@@ -79,6 +79,7 @@ class SiteController extends Controller
     public function actionFooterAction()
     {
         $post = Yii::$app->request->post();
+
         $activity = $this->findActivity();
 
         if (isset($post["prev"]))
@@ -89,6 +90,9 @@ class SiteController extends Controller
 
         if (isset($post["start"]))
             $activity->start();
+
+        if (isset($post["fuel_volume"]))
+            $activity->start(ArrayHelper::getValue($post, "fuel_volume"));
 
         $this->redirect(['/site/index']);
     }

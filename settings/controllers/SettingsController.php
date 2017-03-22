@@ -2,10 +2,14 @@
 
 namespace app\controllers;
 
+use app\models\BillAcceptor;
+use app\models\CardReader;
 use app\models\Settings;
 use yii\data\ActiveDataProvider;
 use yii\helpers\ArrayHelper;
 use kartik\grid\EditableColumnAction;
+use Yii;
+use yii\helpers\Json;
 
 class SettingsController extends \yii\web\Controller
 {
@@ -36,7 +40,71 @@ class SettingsController extends \yii\web\Controller
         $dataProvider = new ActiveDataProvider([
             'query' => Settings::find()
         ]);
-        return $this->render('index', ['dataProvider' => $dataProvider]);
+
+        $acceptor = BillAcceptor::getAcceptor();
+        $reader = CardReader::getReader();
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'acceptor' => $acceptor,
+            'reader' => $reader
+        ]);
+    }
+
+    public function actionAddAcceptor()
+    {
+        BillAcceptor::add();
+        $this->redirect(['/settings/index']);
+    }
+
+    public function actionAcceptorUpdate()
+    {
+        $post = Yii::$app->request->post();
+        $acceptor = BillAcceptor::getAcceptor();
+
+        if (Yii::$app->request->isAjax && isset($post['kvdelete'])) {
+            echo Json::encode([
+                'success' => true,
+                'messages' => [
+                    'kv-detail-info' => 'Запись удалена. '
+                ]
+            ]);
+            $acceptor->delete();
+            return;
+        }
+
+        if ($acceptor->load($post) && $acceptor->save())
+            Yii::$app->session->setFlash('kv-detail-success', 'Запись сохранена!');
+
+        $this->redirect(['index']);
+    }
+
+    public function actionAddReader()
+    {
+        CardReader::add();
+        $this->redirect(['/settings/index']);
+    }
+
+    public function actionReaderUpdate()
+    {
+        $post = Yii::$app->request->post();
+        $reader = CardReader::getReader();
+
+        if (Yii::$app->request->isAjax && isset($post['kvdelete'])) {
+            echo Json::encode([
+                'success' => true,
+                'messages' => [
+                    'reader-kv-detail-info' => 'Запись удалена. '
+                ]
+            ]);
+            $reader->delete();
+            return;
+        }
+
+        if ($reader->load($post) && $reader->save())
+            Yii::$app->session->setFlash('reader-kv-detail-success', 'Запись сохранена!');
+
+        $this->redirect(['index']);
     }
 
 }

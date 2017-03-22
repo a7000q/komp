@@ -41,7 +41,7 @@ class Sales extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['date', 'id_trk', 'id_trk_address', 'id_product', 'id_pay', 'status'], 'integer'],
+            [['date', 'id_trk', 'id_trk_address', 'id_product', 'id_pay', 'status', 'id_card'], 'integer'],
             [['price', 'volume', 'sum'], 'number'],
             [['name_trk', 'name_trk_address', 'name_product'], 'string', 'max' => 255],
         ];

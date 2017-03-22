@@ -39,7 +39,7 @@ class Sales extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['date', 'id_trk', 'id_trk_address', 'id_product', 'id_pay', 'status', 'upload'], 'integer'],
+            [['date', 'id_trk', 'id_trk_address', 'id_product', 'id_pay', 'status', 'upload', 'id_card'], 'integer'],
             [['price', 'volume', 'sum'], 'number'],
             [['name_trk', 'name_trk_address', 'name_product'], 'string', 'max' => 255],
         ];
@@ -84,16 +84,29 @@ class Sales extends \yii\db\ActiveRecord
         $token = Settings::getToken();
         $id_product = $this->product->ids;
 
-        $response = $client->get('http://api.tagera.ru/sale/add-cash',[
-            'token' => $token,
-            'date' => $this->date,
-            'id_product' => $id_product,
-            'volume' => $this->volume,
-            'price' => $this->price,
-            'bill_sum' => $this->sum
-        ])->send();
+        switch ($this->id_pay)
+        {
+            case 1:
+                $response = $client->get('http://api.tagera.ru/sale/add-cash',[
+                    'token' => $token,
+                    'date' => $this->date,
+                    'id_product' => $id_product,
+                    'volume' => $this->volume,
+                    'price' => $this->price,
+                    'bill_sum' => $this->sum
+                ])->send();
+                break;
+            case 2:
+                $response = $client->get('http://api.tagera.ru/sale/add-card',[
+                    'token' => $token,
+                    'date' => $this->date,
+                    'id_product' => $id_product,
+                    'volume' => $this->volume,
+                    'price' => $this->price,
+                    'id_card' => $this->id_card
+                ])->send();
+        }
 
-        print_r($response);
 
         if ($response->isOk && $response->data["status"] == 200)
         {
