@@ -356,10 +356,12 @@ class Activity extends \yii\db\ActiveRecord
     {
         if (parent::beforeDelete()) {
             $acceptor = BillAcceptor::getAcceptor();
-            $acceptor->disabled();
+            if ($acceptor)
+                $acceptor->disabled();
 
             $reader = CardReader::getReader();
-            $reader->disabled();
+            if ($reader)
+                $reader->disabled();
 
             ServerMsg::deleteAll();
             return true;
